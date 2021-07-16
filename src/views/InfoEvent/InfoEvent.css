@@ -1,0 +1,32 @@
+.info-event-section{
+    text-align: center;
+    padding: 0 4%;
+}
+
+.info-event-section h1{
+    font-size: 2rem;
+}
+
+.event-details{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 4%;
+}
+
+.event-details img{
+    width: 100%;
+}
+
+.event-details div:first-child{
+    width: 75%;
+}
+
+.event-details div:last-child{
+    width: 20%;
+}
+
+@media (max-width: 425px) {
+    .event-details {
+        flex-direction: column;
+    }
+}

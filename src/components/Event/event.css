@@ -1,0 +1,54 @@
+.event-card{
+    width: 30%;
+    background-color: #fff;
+    border-radius: 10px;
+    position: relative;
+    margin-bottom: 2%;
+    height: fit-content;
+}
+
+.event-card img{
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+}
+
+.event-card-info{
+    padding: 6%;
+}
+
+.event-card-btn{
+    text-align: center;
+    background-color: #e6ecfe;
+    padding: 3% 0;
+}
+
+.event-card-btn a{
+    text-decoration: none;
+    color: #7788c1;
+    font-weight: 800;
+}
+
+.event-card-btn svg{
+    margin-left: 4%;
+}
+
+.icon-fav{
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background-color: #fff;
+    border-radius: 50%;
+    padding: 3%;
+    cursor: pointer;
+}
+
+.icon-heart-solid{
+    color: #F2001F;
+}
+
+
+@media (max-width: 425px) {
+    .event-card{
+        width: 100%;
+    }
+}
