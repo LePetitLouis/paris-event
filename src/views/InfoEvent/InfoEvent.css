@@ -25,6 +25,22 @@
     width: 20%;
 }
 
+.icon-event-details{
+    display: flex;
+}
+
+.icon-event-details a{
+    border: 1px solid #689997;
+    padding: 25%;
+    border-radius: 50%;
+    background-color: #689997;
+    margin-right: 10%;
+}
+
+.icon-event-details a svg{
+    color: #fff;
+}
+
 @media (max-width: 425px) {
     .event-details {
         flex-direction: column;
