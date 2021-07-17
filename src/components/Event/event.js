@@ -6,6 +6,8 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { faHeart as faHeartRegular } from "@fortawesome/free-regular-svg-icons";
 import { faHeart as faHeartSolid } from "@fortawesome/free-solid-svg-icons";
 
+import moment from 'moment'
+
 import './event.css';
 
 function Event(props) {
@@ -34,7 +36,6 @@ function Event(props) {
      */ 
     function handleAddFav(data) {
         setFav(true);
-        const events = data;
         // push event in localStorage
         if(localStorage.getItem('parisevent.favorites')){
             const eventsFav = JSON.parse(localStorage.getItem('parisevent.favorites'));
@@ -43,9 +44,10 @@ function Event(props) {
         }
         // create object events in localStorage
         else{
-            localStorage.setItem('parisevent.favorites', JSON.stringify([events]));
+            localStorage.setItem('parisevent.favorites', JSON.stringify([data]));
         } 
     }
+    
     /**
      * Remove event in Favoris (localStorage)
      */
@@ -67,7 +69,7 @@ function Event(props) {
                 
                 <div className="event-card-info">
                     <h1>{event.record.fields.title}</h1>
-                    <p>{event.record.fields.date_start}</p>
+                    <p>{moment(event.record.fields.date_star).format("DD/MM/YYYY à h:MM:ss")}</p>
                     <p>{event.record.fields.lead_text}</p>
                     <div className="event-card-btn">
                         <Link to={{ pathname: '/event/'+ event.record.id }} >
