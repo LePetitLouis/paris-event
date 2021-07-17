@@ -10,13 +10,19 @@ function Search() {
     const [listEvent, setListEvent] = useState([]);
     const [showResult, setShowResult] = useState(false);
 
+    /**
+     * Set search when change input
+     */
     const handleChange = (e) => {
         setSearch(e.target.value);
     }
 
-    const handleSubmit = async(e) => {
+    /**
+     * Retrieve events with search
+     */
+    const handleSubmit = (e) => {
         e.preventDefault();
-        await axios.get(`https://opendata.paris.fr/api/v2/catalog/datasets/que-faire-a-paris-/records/?search=${search}&sort=-date_start&rows=15`)
+        axios.get(`https://opendata.paris.fr/api/v2/catalog/datasets/que-faire-a-paris-/records/?search=${search}&sort=-date_start&rows=15`)
         .then(result => { 
             setListEvent(result.data.records);
             setShowResult(true);

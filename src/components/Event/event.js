@@ -13,10 +13,12 @@ function Event(props) {
 
     const [fav, setFav] = useState(false);
 
+    /**
+     * Set icon Favoris to false/true
+     */
     useEffect(() => {
         if(JSON.parse(localStorage.getItem('parisevent.favorites'))){
             const eventsFav = JSON.parse(localStorage.getItem('parisevent.favorites'));
-            console.log(eventsFav);
             if(eventsFav.length != 0){
                 eventsFav.map(eventFav => {
                     if(eventFav.record.id == event.record.id){
@@ -27,20 +29,26 @@ function Event(props) {
         }
     }, [])
     
+    /**
+     * Add event in Favoris (localStorage)
+     */ 
     function handleAddFav(data) {
         setFav(true);
-        const event = data;
+        const events = data;
+        // push event in localStorage
         if(localStorage.getItem('parisevent.favorites')){
             const eventsFav = JSON.parse(localStorage.getItem('parisevent.favorites'));
             eventsFav.push(event);
-            console.log(eventsFav);
             localStorage.setItem('parisevent.favorites', JSON.stringify(eventsFav));
         }
+        // create object events in localStorage
         else{
-            localStorage.setItem('parisevent.favorites', JSON.stringify([event]));
+            localStorage.setItem('parisevent.favorites', JSON.stringify([events]));
         } 
     }
-
+    /**
+     * Remove event in Favoris (localStorage)
+     */
     function handleRemoveFav(data) {
         const eventsFav = JSON.parse(localStorage.getItem('parisevent.favorites'));
         const removeEventFav = eventsFav.filter(event => event.record.id != data.record.id);

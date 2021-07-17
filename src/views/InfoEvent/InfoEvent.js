@@ -14,8 +14,11 @@ function InfoEvent() {
 
     const [event, setEvent] = useState([])
 
-    useEffect(async() => {
-        await axios.get(`https://opendata.paris.fr/api/v2/catalog/datasets/que-faire-a-paris-/records/${id}`)
+    /**
+     * retrieve event by id 
+     */
+    useEffect(() => {
+        axios.get(`https://opendata.paris.fr/api/v2/catalog/datasets/que-faire-a-paris-/records/${id}`)
         .then(res => setEvent(res.data.record))
         .catch(err => console.log(err))
     }, [])

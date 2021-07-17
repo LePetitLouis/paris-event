@@ -8,8 +8,11 @@ function Home() {
     const [lastEvent, setLastEvent] = useState([]);
     const [showResult, setShowResult] = useState(false);
 
-    useEffect(async() => {
-        await axios.get('https://opendata.paris.fr/api/v2/catalog/datasets/que-faire-a-paris-/records?sort=-date_start&rows=1')
+    /**
+     * Retrieve the last event record
+     */
+    useEffect(() => {
+        axios.get('https://opendata.paris.fr/api/v2/catalog/datasets/que-faire-a-paris-/records?sort=-date_start&rows=1')
         .then(result => {
             setLastEvent(result.data.records[0]);
             setShowResult(true);
